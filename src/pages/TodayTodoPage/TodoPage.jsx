@@ -24,8 +24,6 @@ const TodoPage = () => {
             <Loader/> 
             : 
             responceArr.map((item)=><ToDo key={idGenerateFunction()} text={item.title}/>)}
-
-        
         </div>
     );
 }
