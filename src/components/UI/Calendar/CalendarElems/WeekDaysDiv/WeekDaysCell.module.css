@@ -1,0 +1,6 @@
+.WeekDaysCell{
+    display:  inline-block;
+    border: solid 0px;
+    width: 54px;
+    height: 20px;
+}

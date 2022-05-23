@@ -1,0 +1,8 @@
+.basis{
+        text-align: center;
+        display: block;
+        border: solid 1px black;
+        width: 420px;
+        left: 50%;
+        /* margin: 0 0 0 -210px; */
+}
