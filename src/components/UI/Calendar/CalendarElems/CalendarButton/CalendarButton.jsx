@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './CalendarButton.module.css';
 const CalendarButton = (props) => {
     return (
-        <a href={() => false} className={classes.button}>{props.children}</a>
+        <a  className={classes.button}>{props.children}</a>
     );
 }
 
