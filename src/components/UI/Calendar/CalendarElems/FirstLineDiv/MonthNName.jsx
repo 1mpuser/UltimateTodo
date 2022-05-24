@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './MonthNName.module.css';
-const MonthNName = ({children}) => {
+const MonthNName = (props) => {
     return (
-        <div className={classes.item}>{children}</div>
+        <div className={classes.item}>{props.children}</div>
     );
 }
 

@@ -4,3 +4,9 @@
     height: 20px;
     justify-content: space-between;
 }
+.MonthNYearName{
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    text-align: left;
+}
