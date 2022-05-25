@@ -12,7 +12,7 @@ const Calendar = () => {
     const [calendarDate, setCalendarDate] = useState(workingDate);
     return (
         <div className={classes.basis}>
-            <FirstLineDiv date={calendarDate} setWorkDate = {setCalendarDate}/>
+            <FirstLineDiv date={calendarDate} setWorkDate = {(date)=>setCalendarDate(date)}/>
             <WeekDaysDiv/>
             <SmartDivWithCellReorganisation />
         </div>
