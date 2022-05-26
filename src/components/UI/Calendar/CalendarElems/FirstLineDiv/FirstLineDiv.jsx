@@ -7,9 +7,7 @@ import { englishMonths } from '../../../../../constants/EnglishMonths';
 import ChangeMonth from '../../../../scripts/ChangeMonth';
 const FirstLineDiv = ({date, setWorkDate}) => {
     const [insideDate, setInsideDate] = useState(date);
-    const [monthText, setMonthText] = useState(englishMonths[date.getMonth()]);
-    const [yearText, setYearText] = useState(date.getFullYear());
-    const str = monthText + ' ' + yearText;
+    const str = englishMonths[insideDate.getMonth()] + ' ' + insideDate.getFullYear();
     //= englishMonths[tmpDate.getMonth()] + ' ' + tmpDate.getFullYear();
     //need to work here cause this shit is not working
     //maybe thats need to work cause we need primitive types here
@@ -18,13 +16,9 @@ const FirstLineDiv = ({date, setWorkDate}) => {
             <div className={classes.MonthNYearName}>{str}</div>
             <div>
             <CalendarButton onClick = {()=>{
-                console.log('working');
                 let tmpDate = new Date(insideDate);
-                tmpDate.setDate(1);
                 tmpDate = ChangeMonth(tmpDate, false);
                 setInsideDate(tmpDate);
-                setMonthText(englishMonths[tmpDate.getMonth()]);
-                setYearText(tmpDate.getFullYear());
                 setWorkDate(tmpDate);
             }}>&larr;</CalendarButton>
             <CalendarButton>&rarr;</CalendarButton>

@@ -8,13 +8,14 @@ import { DateContext } from '../../../context/DateContext';
 const Calendar = () => {
     const id = nanoid;
     const {date, setDate} = useContext(DateContext);
-    const workingDate = useMemo (()=> new Date ( date.getFullYear(), date.getMonth(),1), [date]);
+    const workingDate = useMemo (()=> new Date ( date.getFullYear(), date.getMonth(), 1), [date]);
+    console.log(workingDate);
     const [calendarDate, setCalendarDate] = useState(workingDate);
     return (
         <div className={classes.basis}>
             <FirstLineDiv date={calendarDate} setWorkDate = {(date)=>setCalendarDate(date)}/>
             <WeekDaysDiv/>
-            <SmartDivWithCellReorganisation />
+            <SmartDivWithCellReorganisation contextDate = {date} date = {workingDate} setContextFromCell = {setDate}/>
         </div>
     );
 }
