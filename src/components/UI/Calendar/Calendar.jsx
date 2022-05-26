@@ -11,11 +11,12 @@ const Calendar = () => {
     const workingDate = useMemo (()=> new Date ( date.getFullYear(), date.getMonth(), 1), [date]);
     console.log(workingDate);
     const [calendarDate, setCalendarDate] = useState(workingDate);
+    console.log(calendarDate);
     return (
         <div className={classes.basis}>
             <FirstLineDiv date={calendarDate} setWorkDate = {(date)=>setCalendarDate(date)}/>
             <WeekDaysDiv/>
-            <SmartDivWithCellReorganisation contextDate = {date} date = {workingDate} setContextFromCell = {setDate}/>
+            <SmartDivWithCellReorganisation contextDate = {date} workDate = {calendarDate} setContextFromCell = {setDate}/>
         </div>
     );
 }
