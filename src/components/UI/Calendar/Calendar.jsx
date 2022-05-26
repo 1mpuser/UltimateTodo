@@ -9,14 +9,13 @@ const Calendar = () => {
     const id = nanoid;
     const {date, setDate} = useContext(DateContext);
     const workingDate = useMemo (()=> new Date ( date.getFullYear(), date.getMonth(), 1), [date]);
-    console.log(workingDate);
     const [calendarDate, setCalendarDate] = useState(workingDate);
-    console.log(calendarDate);
+    useMemo(()=> console.log(date), [date])
     return (
         <div className={classes.basis}>
             <FirstLineDiv date={calendarDate} setWorkDate = {(date)=>setCalendarDate(date)}/>
             <WeekDaysDiv/>
-            <SmartDivWithCellReorganisation contextDate = {date} workDate = {calendarDate} setContextFromCell = {setDate}/>
+            <SmartDivWithCellReorganisation contextDate = {date} workDate = {calendarDate} setContextFromCell = {(date)=>setDate(date)}/>
         </div>
     );
 }

@@ -21,7 +21,13 @@ const FirstLineDiv = ({date, setWorkDate}) => {
                 setInsideDate(tmpDate);
                 setWorkDate(tmpDate);
             }}>&larr;</CalendarButton>
-            <CalendarButton>&rarr;</CalendarButton>
+            <CalendarButton
+            onClick = {()=>{
+                let tmpDate = new Date(insideDate);
+                tmpDate = ChangeMonth(tmpDate, true);
+                setInsideDate(tmpDate);
+                setWorkDate(tmpDate);
+            }}>&rarr;</CalendarButton>
             {/* onclick setsNewDate */ }
             </div>
         </div>
