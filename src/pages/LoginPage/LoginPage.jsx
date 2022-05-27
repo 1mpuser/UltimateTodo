@@ -8,10 +8,22 @@ const LoginPage = () => {
     return (
         <div>
             <h1>Login page</h1>
-             <DataForm>
+             <DataForm onSubmit = {(event)=> {
+                 event.preventDefault();
+                 console.log(login);
+                 console.log(password);
+                 setLogin('');
+                 setPassword('');
+             }}>
                 <DataInput type="text" placeholder='Enter ur login' value={login} onChange={(event)=>setLogin(event.target.value)}/>
                 <DataInput type="text" placeholder='Enter ur password' value={password} onChange={(event)=>setPassword(event.target.value)}/>
-                <SendDataButton >Ok</SendDataButton>
+                <SendDataButton
+                    login = {login}
+                    password = {password}
+                    passSetter = {(word) => setPassword(word)}  
+                    logSetter = {(word)=>setLogin(word)}>
+                        Ok
+                </SendDataButton>
             </DataForm>
         </div>
     );

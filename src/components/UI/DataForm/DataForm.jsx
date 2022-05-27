@@ -7,7 +7,7 @@ const DataForm = ({children, ...props}) => {
         <form id={uniqueIdForForm}  {...props} className={classes.form} onKeyDown={(event)=>{
             if (event.key === 'Enter'){
             const thisElement = document.getElementById(uniqueIdForForm);
-            thisElement.submit();
+            //thisElement.submit();
         }}}
         >
             {children}

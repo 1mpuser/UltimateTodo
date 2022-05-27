@@ -4,7 +4,7 @@ import SendDataButton from '../../components/UI/SendDataButton/SendDataButton';
 import DataInput from '../../components/UI/DataInput/DataInput';
 import DataForm from '../../components/UI/DataForm/DataForm';
 const SignUpPage = () => {
-    const [nickname, setNickname] = useState('');
+    const [login, setLogin] = useState('');
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     return (
@@ -12,13 +12,22 @@ const SignUpPage = () => {
             <div className={classes.centredDiv}>
             <h1>Here u can sign up</h1>
             <DataForm>
-                <DataInput style={{width: '40%'}} type="text" placeholder='Enter ur nickname' value={nickname} onChange={(event)=>setNickname(event.target.value)}/>
+                <DataInput style={{width: '40%'}} type="text" placeholder='Enter ur login' value={login} onChange={(event)=>setLogin(event.target.value)}/>
                 <br />
                 <DataInput style={{width: '40%'}} type="text" placeholder='Enter ur mail' value={mail} onChange={(event)=>setMail(event.target.value)}/>
                 <br />
                 <DataInput style={{width: '40%'}} type="text" placeholder='Enter ur password' value={password} onChange={(event)=>setPassword(event.target.value)}/>
                 <br />
-                <SendDataButton>Send ur data</SendDataButton>
+                <SendDataButton
+                    login = {login}
+                    password = {password}
+                    mail={mail}
+                    passSetter = {(word) => setPassword(word)}  
+                    logSetter = {(word)=>setLogin(word)}
+                    mailSetter = {(word)=>setMail(word)}
+                    >
+                        Send ur data
+                </SendDataButton>
             </DataForm>
             </div>
         </div>
