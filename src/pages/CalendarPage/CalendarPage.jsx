@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Calendar from '../../components/UI/Calendar/Calendar';
 const CalendarPage= () => {
     return (
-        <><Calendar/></>
+        <>
+            <Calendar/>
+        </>
     );
 }
 
