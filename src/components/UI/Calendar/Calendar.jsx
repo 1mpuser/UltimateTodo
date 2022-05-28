@@ -23,6 +23,6 @@ const Calendar = () => {
 export default Calendar;
 
 // in working date we'll push only first day of some month from context date object cause
-//in 31, 29, 30 th dates would be troubles in it so in cell we'lll put just a date
+//in 31, 29, 30 th dates would be troubles in it so in cell we'll put just a date
 //from context to find a needed our date so 
 //there it is

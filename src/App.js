@@ -4,17 +4,22 @@ import './App.css';
 import LoginBar from './components/UI/LoginBar/LoginBar';
 import { DateContext } from './context/DateContext';
 import React, { useState } from 'react';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
 	const now = new Date();
 	const [date, setDate] = useState(now);
+	const [isAuth, setAuthStatus] = useState(false);
+	const [login, setLogin] = useState('');
 	return (
-		<DateContext.Provider value={{ date, setDate }}>
-			<BrowserRouter>
-				<LoginBar />
-				<Router />
-			</BrowserRouter>
-		</DateContext.Provider>
+		<AuthContext.Provider value={{ isAuth, setAuthStatus, login, setLogin }}>
+			<DateContext.Provider value={{ date, setDate }}>
+				<BrowserRouter>
+					<LoginBar isAuth={isAuth} name={login} />
+					<Router />
+				</BrowserRouter>
+			</DateContext.Provider>
+		</AuthContext.Provider>
 	);
 }
 

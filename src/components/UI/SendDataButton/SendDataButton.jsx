@@ -1,17 +1,23 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
 import classes from './SendDataButton.module.css'
-import getParentElementByChildId from '../../scripts/getParentElementByChildId';
-const SendDataButton = ({children,logSetter, passSetter, login, password, mail, mailSetter, ...props}) => {
+import asyncLoginHandler from '../../scripts/JSONHandlers/asyncLoginHandler';
+const SendDataButton = ({children,logSetter, passSetter, login, password, mail, mailSetter,AuthSetter,ContextLogSetter, ...props}) => {
     const uniqueIdForButton = nanoid(23);
     return (
-        <a className={classes.butt} id={uniqueIdForButton} onClick={()=>{
-            console.log(login);
-            console.log(password);
+        <a className={classes.butt} id={uniqueIdForButton} onClick={ async ()=>{
             if (mail) console.log(mail);
+            if (mailSetter) mailSetter('');
+            if (AuthSetter) {
+                const array = await asyncLoginHandler(login, password);
+                console.log('working');
+                if (array[0]) {
+                    AuthSetter(true);
+                    ContextLogSetter(array[1]);
+                }
+            }
             logSetter('');
             passSetter('');
-            if (mailSetter) mailSetter('');
         }} {...props}>{children}</a>
     );
 }
