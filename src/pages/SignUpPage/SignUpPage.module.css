@@ -1,8 +1,7 @@
 .mainDiv{
     height: 100vw;
     width: 100vw;
-    margin-left: 20%;
-
+    display: inline-block;
     /* background-color: DodgerBlue; */
 }
 .centredDiv{

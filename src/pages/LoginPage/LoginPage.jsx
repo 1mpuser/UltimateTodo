@@ -10,20 +10,22 @@ const LoginPage = () => {
     return (
         <div>
             {isAuth ? <h1>U've been logged in!</h1> : <h1>Login page</h1> }
-             {!isAuth && <DataForm>
-                <DataInput type="text" placeholder='Enter ur login' value={tmpLogin} onChange={(event)=>setTmpLogin(event.target.value)}/>
-                <DataInput type="text" placeholder='Enter ur password' value={password} onChange={(event)=>setPassword(event.target.value)}/>
-                <SendDataButton
-                    login = {tmpLogin}
-                    password = {password}
-                    passSetter = {(word) => setPassword(word)}  
-                    logSetter = {(word)=>setTmpLogin(word)}
-                    AuthSetter = {(word) => setAuthStatus(word)}
-                    ContextLogSetter = {(word) => setLogin(word)}
-                    >
-                        Ok
-                </SendDataButton>
-            </DataForm>}
+            {!isAuth && <DataForm>
+                            <DataInput type="text" placeholder='Enter ur login' value={tmpLogin} onChange={(event)=>setTmpLogin(event.target.value)}/>
+                            <DataInput type="text" placeholder='Enter ur password' value={password} onChange={(event)=>setPassword(event.target.value)}/>
+                            <div>
+                            <SendDataButton
+                                login = {tmpLogin}
+                                password = {password}
+                                passSetter = {(word) => setPassword(word)}  
+                                logSetter = {(word)=>setTmpLogin(word)}
+                                AuthSetter = {(word) => setAuthStatus(word)}
+                                ContextLogSetter = {(word) => setLogin(word)}
+                                >
+                                    Ok
+                            </SendDataButton>
+                            </div>
+                        </DataForm>}
         </div>
     );
 }

@@ -5,17 +5,17 @@ import WeekDaysDiv from './CalendarElems/WeekDaysDiv/WeekDaysDiv';
 import FirstLineDiv from './CalendarElems/FirstLineDiv/FirstLineDiv';
 import SmartDivWithCellReorganisation from './CalendarElems/SmartDivWithCellReorganisation/SmartDivWithCellReorganisation';
 import { DateContext } from '../../../context/DateContext';
-const Calendar = () => {
+const Calendar = ({takeAwayModalWindow}) => {
     const id = nanoid;
     const {date, setDate} = useContext(DateContext);
     const workingDate = useMemo (()=> new Date ( date.getFullYear(), date.getMonth(), 1), [date]);
     const [calendarDate, setCalendarDate] = useState(workingDate);
-    useMemo(()=> console.log(date), [date])
+    useMemo(()=> console.log(date), [date]);
     return (
         <div className={classes.basis}>
             <FirstLineDiv date={calendarDate} setWorkDate = {(date)=>setCalendarDate(date)}/>
             <WeekDaysDiv/>
-            <SmartDivWithCellReorganisation contextDate = {date} workDate = {calendarDate} setContextFromCell = {(date)=>setDate(date)}/>
+            <SmartDivWithCellReorganisation takeModalWindowFalse = {takeAwayModalWindow} contextDate = {date} workDate = {calendarDate} setContextFromCell = {(date)=>setDate(date)}/>
         </div>
     );
 }

@@ -1,0 +1,14 @@
+.mainDiv{
+    align-items: center;
+}
+div{
+    text-align: center;
+    align-items: center;
+}
+.firstOptionalDiv{
+    margin-top: 5px;
+}
+.optionalDiv{
+    font-size: 30px;
+    margin: 50px;
+}

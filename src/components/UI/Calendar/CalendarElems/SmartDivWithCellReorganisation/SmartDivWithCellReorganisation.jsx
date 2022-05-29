@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import WeekCellLine from '../WeekCellLine/WeekCellLine';
 import DateToWorkObject from '../../../../scripts/DateOfFirstDateToCoolObj';
 import { nanoid } from 'nanoid';
-const SmartDivWithCellReorganisation = ({workDate, setContextFromCell, ...props}) => {
+const SmartDivWithCellReorganisation = ({takeModalWindowFalse,workDate, setContextFromCell, ...props}) => {
     //console.log(DateToWorkObject(tmpDate));
     const id = nanoid;
     const {arr, fifthWeekEmpty, sixthWeekEmpty} = DateToWorkObject(workDate);
@@ -12,9 +12,9 @@ const SmartDivWithCellReorganisation = ({workDate, setContextFromCell, ...props}
         <div>
             {
                 arr.map((item, index) => {
-                    if (index < 4) return <WeekCellLine key={id()} setContextFromCell={setContextFromCell} arr={item} month={month} year={year}/>
-                    else if (index == 4 && !fifthWeekEmpty) return <WeekCellLine key={id()} setContextFromCell={setContextFromCell} arr={item} month={month} year={year}/>
-                    else if (index == 5 && !sixthWeekEmpty) return <WeekCellLine key={id()} setContextFromCell={setContextFromCell} arr={item} month={month} year={year}/>
+                    if (index < 4) return <WeekCellLine modalWindow = {takeModalWindowFalse} key={id()} setContextFromCell={setContextFromCell} arr={item} month={month} year={year}/>
+                    else if (index == 4 && !fifthWeekEmpty) return <WeekCellLine modalWindow = {takeModalWindowFalse} key={id()} setContextFromCell={setContextFromCell} arr={item} month={month} year={year}/>
+                    else if (index == 5 && !sixthWeekEmpty) return <WeekCellLine modalWindow = {takeModalWindowFalse} key={id()} setContextFromCell={setContextFromCell} arr={item} month={month} year={year}/>
                 })
             }
         </div>

@@ -5,7 +5,7 @@ import LoginBar from './components/UI/LoginBar/LoginBar';
 import { DateContext } from './context/DateContext';
 import React, { useState } from 'react';
 import { AuthContext } from './context/AuthContext';
-
+import ModalCalendarWindow from './components/ModalCalendarWindow/ModalCalendarWindow';
 function App() {
 	const now = new Date();
 	const [date, setDate] = useState(now);
