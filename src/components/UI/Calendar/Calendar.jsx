@@ -10,7 +10,7 @@ const Calendar = ({takeAwayModalWindow}) => {
     const {date, setDate} = useContext(DateContext);
     const workingDate = useMemo (()=> new Date ( date.getFullYear(), date.getMonth(), 1), [date]);
     const [calendarDate, setCalendarDate] = useState(workingDate);
-    useMemo(()=> console.log(date), [date]);
+    //useMemo(()=> console.log(date), [date]);
     return (
         <div className={classes.basis}>
             <FirstLineDiv date={calendarDate} setWorkDate = {(date)=>setCalendarDate(date)}/>

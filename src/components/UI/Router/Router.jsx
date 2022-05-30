@@ -7,6 +7,7 @@ import HomePage from '../../../pages/HomePage/HomePage';
 import LoginPage from '../../../pages/LoginPage/LoginPage';
 import SignUpPage from '../../../pages/SignUpPage/SignUpPage';
 import TodoPage from '../../../pages/TodayTodoPage/TodoPage';
+import TodoOnDatePage from '../../../pages/TodoOnDatePage/TodoOnDatePage';
 
 const Router = () => {
     const id = nanoid;
@@ -30,7 +31,12 @@ const Router = () => {
             <Route key={id()} path='/calendarik'>
                 <CalendarPage/>
             </Route>
-            <Redirect key={id()} to='/home'></Redirect>
+            <Route exact to = "todos/:date">
+                <TodoOnDatePage/>
+            </Route>
+            {/* <Route to=>
+            </Route> */}
+            {/* <Redirect key={id()} to='/home'></Redirect> */}
         </Switch>
     );
 }
