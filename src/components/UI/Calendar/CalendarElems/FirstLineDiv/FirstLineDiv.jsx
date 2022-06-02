@@ -4,7 +4,7 @@ import CalendarButton from '../CalendarButton/CalendarButton';
 import classes from './FirstLineDiv.module.css';
 import MonthNName from './MonthNName';
 import { englishMonths } from '../../../../../constants/EnglishMonths';
-import ChangeMonth from '../../../../scripts/ChangeMonth';
+import ChangeMonth from '../../../../../scripts/ChangeMonth';
 const FirstLineDiv = ({date, setWorkDate}) => {
     const [insideDate, setInsideDate] = useState(date);
     const str = englishMonths[insideDate.getMonth()] + ' ' + insideDate.getFullYear();

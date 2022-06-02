@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
 import classes from './SendDataButton.module.css'
-import asyncLoginHandler from '../../scripts/JSONHandlers/asyncLoginHandler';
+import asyncLoginHandler from '../../../scripts/JSONHandlers/asyncLoginHandler';
 const SendDataButton = ({children,logSetter, passSetter, login, password, mail, mailSetter,AuthSetter,ContextLogSetter, ...props}) => {
     const uniqueIdForButton = nanoid(23);
     return (

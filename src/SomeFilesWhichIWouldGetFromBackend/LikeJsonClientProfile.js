@@ -1,4 +1,4 @@
-export const json = {
+export const jsonLike = {
 	login: 'Alex',
 	email: 'hopheilalalei@email.com',
 	password: 3228,

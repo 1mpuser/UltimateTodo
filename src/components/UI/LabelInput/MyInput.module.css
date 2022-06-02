@@ -1,0 +1,9 @@
+.input{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: 0.5px solid #CCCCFF;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 2px;
+}

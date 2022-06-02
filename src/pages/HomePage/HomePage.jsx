@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import classes from './HomePage.module.css';
 import CheckTodoButton from '../../components/UI/MyButton/CheckTodoButton';
 import { DateContext } from '../../context/DateContext';
-import isItTodayDate from '../../components/scripts/isItTodayDate';
+import isItTodayDate from '../../scripts/isItTodayDate';
 import ModalCalendarWindow from '../../components/ModalCalendarWindow/ModalCalendarWindow';
 import { useHistory } from 'react-router-dom';
 const HomePage = () => {

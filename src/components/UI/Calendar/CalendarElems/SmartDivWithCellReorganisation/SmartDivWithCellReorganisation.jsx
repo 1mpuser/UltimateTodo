@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import WeekCellLine from '../WeekCellLine/WeekCellLine';
-import DateToWorkObject from '../../../../scripts/DateOfFirstDateToCoolObj';
+import DateToWorkObject from '../../../../../scripts/DateOfFirstDateToCoolObj';
 import { nanoid } from 'nanoid';
 const SmartDivWithCellReorganisation = ({takeModalWindowFalse,workDate, setContextFromCell, ...props}) => {
     //console.log(DateToWorkObject(tmpDate));
