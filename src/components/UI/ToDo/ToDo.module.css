@@ -9,7 +9,8 @@
     display: flex;
 }
 .ToDoContent{
-
+    display: flex;
+    justify-content:space-between;
 }
 .ToDoButtonsDiv{
     flex-direction: column;
@@ -18,4 +19,10 @@
     cursor: pointer;
     margin: 5px;
     width: 70px;
+}
+.TimeDivExpired{
+    color: brown;
+}
+.TimeDiv{
+    
 }

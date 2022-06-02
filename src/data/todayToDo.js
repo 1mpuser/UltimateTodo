@@ -1,7 +1,6 @@
 export const todayTodoArr = [
 	{
-		body:
-			'Incididunt in Lorem officia elit dolore fugiat amet qui dolore amet.',
+		body: 'Incididunt in Lorem officia elit dolore fugiat amet qui dolore amet.',
 		time: '19:00:00',
 		memo: '',
 	},
@@ -16,9 +15,8 @@ export const todayTodoArr = [
 		memo: '',
 	},
 	{
-		body:
-			'Sint eiusmod proident ex occaecat anim dolore in veniam mollit adipisicing quis.',
-		time: '23:00:00',
+		body: 'Sint eiusmod proident ex occaecat anim dolore in veniam mollit adipisicing quis.',
+		time: '23:40:00',
 		memo: '',
 	},
 ];
