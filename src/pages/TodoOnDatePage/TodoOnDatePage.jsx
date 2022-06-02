@@ -8,14 +8,13 @@ import MyInput from '../../components/UI/LabelInput/MyInput';
 import { todayTodoArr } from '../../data/todayToDo';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
+import ToDoList from '../../components/UI/ToDoList/ToDoList';
 
 const TodoOnDatePage = () => {
     //month is extended for client comfort
     const id = nanoid;
-    const [arr, setArr] = useState(todayTodoArr);
-    const [todoArr, setTodoArr] =useState (arr.map((item, index)=>{
-        return <ToDo key={id()}  time = {item.time} text = {item.body}/>
-    }))
+    const [toDoArr, setToDoArr] = useState(todayTodoArr);
+    
     const router = useHistory();
     const neededDate = getDateFromDotFormat( router.location.pathname.split('/')[2]);
     return (
@@ -24,9 +23,10 @@ const TodoOnDatePage = () => {
             <div>
                 <MyInput placeholder = "Search Todos by name"/>
             </div>
-            <div className={classes.ItemsDiv}>
-                {todoArr}
-            </div>
+            <ToDoList 
+            remove={(removeElem) =>setToDoArr(toDoArr.filter((item) => item !== removeElem))}
+            objs={toDoArr}
+            />
         </div>
         
     );

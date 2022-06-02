@@ -1,14 +1,17 @@
 import { nanoid } from 'nanoid';
 import React from 'react';
-import { jsonLike } from '../../../SomeFilesWhichIWouldGetFromBackend/LikeJsonClientProfile';
 import ToDo from '../ToDo/ToDo';
-const ToDoList = ({remove}) => {
+import classes from './ToDoList.module.css';
+const ToDoList = ({remove, objs}) => {
     const id = nanoid;
-    const arr = jsonLike.map((item, index)=>{
-        return <ToDo key={id()}/>
+    const arr = objs.map((item)=>{
+        return <ToDo key={id()}  time = {item.time} text = {item.body}/>
     })
     return (
-        <></>
+        <div className={classes.ItemDiv}>
+            {arr.length === 0 && <h1>Тут ничего нет</h1>}
+            {arr.length !== 0 && arr}
+        </div>
     );
 }
 
