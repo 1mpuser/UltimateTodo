@@ -3,10 +3,16 @@ import DataInput from '../../components/UI/DataInput/DataInput';
 import SendDataButton from '../../components/UI/SendDataButton/SendDataButton';
 import DataForm from '../../components/UI/DataForm/DataForm';
 import { AuthContext } from '../../context/AuthContext';
+import useFetching from '../../hooks/useFetching';
+import axios from 'axios';
 const LoginPage = () => {
     const [tmpLogin, setTmpLogin] = useState('');
     const [password, setPassword] = useState('');
     const { isAuth, setAuthStatus, login, setLogin } = useContext(AuthContext);
+    const [fetching, isLoading, error] = useFetching(()=>{
+        const responce = axios.get('https://my-json-server.typicode.com/1mpuser/demoJSON/accounts');
+        
+    })
     return (
         <div>
             {isAuth ? <h1>U've been logged in!</h1> : <h1>Login page</h1> }

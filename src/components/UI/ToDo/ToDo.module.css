@@ -1,11 +1,14 @@
 .ToDoBorderDiv{
-    width: 700px;
+    width: 900px;
     height: auto;
     border: 1px solid indigo;
     text-align: center;
     justify-content: space-between;
     margin-top: 15px;
     padding: 15px;
+    display: flex;
+}
+.FormDiv{
     display: flex;
 }
 .ToDoContent{
