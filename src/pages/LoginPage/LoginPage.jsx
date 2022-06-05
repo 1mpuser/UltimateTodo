@@ -8,6 +8,8 @@ const LoginPage = () => {
     const [tmpLogin, setTmpLogin] = useState('');
     const [password, setPassword] = useState('');
     const { isAuth, setAuthStatus, login, setLogin } = useContext(AuthContext);
+    const [isItGoodAttempt, setisItGoodAttempt] = useState(true);
+    console.log(isItGoodAttempt);
     return (
         <div>
             {isAuth ? <h1>U've been logged in!</h1> : <h1>Login page</h1> }
@@ -22,11 +24,13 @@ const LoginPage = () => {
                                 logSetter = {(word)=>setTmpLogin(word)}
                                 AuthSetter = {(word) => setAuthStatus(word)}
                                 ContextLogSetter = {(word) => setLogin(word)}
+                                wrongAnswerSetter = {(bool)=>setisItGoodAttempt(bool)}
                                 >
                                     Ok
                             </SendDataButton>
                             </div>
                         </DataForm>}
+            {!isItGoodAttempt && <h1 style={{backgroundColor : "red"}}>Ur attempt is wrong</h1>}
         </div>
     );
 }
