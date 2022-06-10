@@ -4,9 +4,9 @@ export default class ServerHelper {
 		const promise = new Promise(function (resolve, reject) {
 			setTimeout(() => resolve('done'), 5000);
 		});
-		const bool = await promise;
+		//const bool = await promise;
 		const responce = await axios.get(
-			'https://jsonplaceholder.typicode.com/posts',
+			'https://jsonplaceholder.typicode.com/todos',
 			{
 				params: {
 					_limit: limit,

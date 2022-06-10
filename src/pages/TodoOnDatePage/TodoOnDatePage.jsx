@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import getDateFromDotFormat from '../../scripts/getDateFromDotFormat';
 import { englishMonths } from '../../constants/EnglishMonths';
 import classes from './TodoOnDatePage.module.css';
 import MyInput from '../../components/UI/LabelInput/MyInput';
-import { todayTodoArr } from '../../data/todayToDo';
+import MySelect from '../../components/UI/MySelect/MySelect';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import ToDoList from '../../components/UI/ToDoList/ToDoList';
 import ServerHelper from '../../scripts/ServerHelper';
 import useFetching from '../../hooks/useFetching';
 import Loader from '../../components/UI/Loader/Loader';
+import TodoFilter from '../../components/ToDoFilter';
+import { useSortedTodos } from '../../hooks/useSortedTodos';
 
 const TodoOnDatePage = () => {
-    //month is extended for client comfort
+    //month is extended for 1 for client comfort
     const id = nanoid;
     const nowHour = 12;
     const [toDoArr, setToDoArr] = useState([]);
@@ -25,29 +27,47 @@ const TodoOnDatePage = () => {
             item.time = `${nowHour + index}:00`;
             return item;
         });
+        console.log(arr);
         setToDoArr(arr);
     });
+    
+    const [options, setOptions] = useState([{
+        value : "time", 
+        name : "On time"
+    },
+    {
+        value : "title",
+        name : "On text"
+    }
+])
     useEffect(() => {
 		async function fet() {
 			await fetching();
 		}
 		fet();
 	}, []);
-    
+    const [sortType, setSortType] = useState('');
+
+    const sortedContent = useMemo(()=>useSortedTodos(toDoArr, sortType), [toDoArr, sortType]);;
+    console.log(sortedContent);
     return (
         <div className={classes.mainDiv}>
             <h1>ToDo page on {neededDate.getDate() + ' ' + englishMonths[neededDate.getMonth()] + ' ' +  neededDate.getFullYear()}</h1>
             {isLoading && <div className={classes.LoaderDiv}><Loader/></div>}
-            
             {!isLoading && <>
                                 <div>
-                                    <MyInput placeholder = "Search Todos by name"/>
+                                    <TodoFilter
+                                        options={[...options]}
+                                        returnSortArr={(sort) => setSortType(sort)}
+                                    />
+                                    <MyInput placeholder = "Search Todos by name"/>     
                                 </div>
                                 <ToDoList 
-                                remove={(removeElem) => setToDoArr(toDoArr.filter((item) => item !== removeElem))}
-                        objs={toDoArr}
-                        />
-            </>}
+                                    remove={(removeElem) => setToDoArr(toDoArr.filter((item) => item !== removeElem))}
+                                    objs={toDoArr}
+                                />
+                            </>
+            }
         </div>
         
     );

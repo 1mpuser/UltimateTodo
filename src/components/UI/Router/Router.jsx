@@ -34,9 +34,7 @@ const Router = () => {
             <Route exact to = "todos/:date">
                 <TodoOnDatePage/>
             </Route>
-            {/* <Route to=>
-            </Route> */}
-            {/* <Redirect key={id()} to='/home'></Redirect> */}
+             <Redirect key={id()} to='/home'/>
         </Switch>
     );
 }
