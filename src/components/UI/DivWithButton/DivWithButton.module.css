@@ -1,0 +1,54 @@
+.div{
+    margin:10% 10% 10% 20%;
+    }
+    .input {
+        width: 300px;
+        height: 40px;
+        border-radius:20px;
+        background:#FFFFFF;
+        outline:none;
+        border:none;
+        }
+    
+    .button{
+        margin-left:-21.5%;
+        height: 45px;
+        width: 90px;
+        border-radius:20px;
+        background: -webkit-linear-gradient(#FF5252, #FF4081); /* For Safari 5.1 to 6.0*/
+        background: -o-linear-gradient(#FF5252, #FF4081); /* For Opera 11.1 to 12.0*/    background: -moz-linear-gradient(#FF5252, #FF4081); /* For Firefox 3.6 to 15*/
+        background: linear-gradient(#FF5252, #FF4081); /*Standard syntax*/             border:none;
+        cursor: pointer;
+    }
+    .bold{
+      color: #FFFFFF;
+      font-size:13px;
+      font-weight:bold;
+    }
+    /*Place holder color*/
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #757575;
+      font-size:14px;
+      font-weight:bold;
+      padding:5px;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+     color: #757575;
+      font-size:14px;
+      font-weight:bold;
+        padding:5px;
+    
+      }
+    :-ms-input-placeholder { /* IE 10+ */
+     color: #757575;
+      font-size:14px;
+      font-weight:bold;
+      padding:5px;
+    
+      }
+    :-moz-placeholder { /* Firefox 18- */
+     color: #757575;
+      font-size:14px;
+      font-weight:bold;
+      padding:5px;
+      }

@@ -3,7 +3,7 @@ import MySelect from './UI/MySelect/MySelect';
 
 
 const TodoFilter = ({returnSortArr, ...props}) => {
-    const defaultValue = 'Сратировка';
+    const defaultValue = 'Select Sort Type';
     const [type, setType] = useState(defaultValue);
     const typeSetter = (type) => {
         setType(type);
