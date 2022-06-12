@@ -26,6 +26,6 @@
 .TimeDivExpired{
     color: brown;
 }
-.TimeDiv{
-    
+.CompletedText{
+    text-decoration: line-through;
 }

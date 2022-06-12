@@ -39,7 +39,7 @@ const TodoOnDatePage = () => {
         name : "On time"
     },
     {
-        value : "title",
+        value : "text",
         name : "On text"
     }
 ]);
@@ -50,9 +50,6 @@ const TodoOnDatePage = () => {
 		fet();
 	}, []);
     const [sortType, setSortType] = useState('');
-
-    
-
     const sortedContent = useMemo(()=>useSortedTodos(toDoArr, sortType), [toDoArr, sortType]);
     return (
         <div className={classes.mainDiv}>
@@ -63,7 +60,7 @@ const TodoOnDatePage = () => {
                     const tmpArr = [...toDoArr];
                     tmpArr.push({
                         time : getNowTimeInTwoPoints(),
-                        body : string
+                        text : string
                     });
                     setToDoArr(tmpArr);
                 }}
@@ -72,7 +69,7 @@ const TodoOnDatePage = () => {
             {isLoading && <div
 					        style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
 					            <Loader />
-				        </div>
+				          </div>
             }
             {!isLoading && <>
                                 <div>
@@ -85,6 +82,14 @@ const TodoOnDatePage = () => {
                                 <ToDoList 
                                     remove={(removeElem) => setToDoArr(toDoArr.filter((item) => item !== removeElem))}
                                     objs={sortedContent}
+                                    complete = {(completeElem)=>{
+                                        setToDoArr(toDoArr.map((item)=>{
+                                            if (item == completeElem) {
+                                                item.completed = !item.completed
+                                            }
+                                            return item
+                                        }))
+                                    }}
                                 />
                             </>
             }
