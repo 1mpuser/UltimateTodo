@@ -5,7 +5,7 @@ import classes from './ToDoList.module.css';
 const ToDoList = ({remove, objs}) => {
     const id = nanoid;
     const arr = objs.map((item)=>{
-        return <ToDo key={id()} remove={remove} elem={item} time = {item.time} text = {item.title}/>
+        return <ToDo key={id()} remove={remove} elem={item} time = {item.time} text = {item.text}/>
     })
     return (
             <div className={classes.ItemsDiv}>

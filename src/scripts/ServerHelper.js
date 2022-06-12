@@ -6,7 +6,7 @@ export default class ServerHelper {
 		});
 		//const bool = await promise;
 		const responce = await axios.get(
-			'https://jsonplaceholder.typicode.com/todos',
+			'https://my-json-server.typicode.com/1mpuser/demoJSON/todos',
 			{
 				params: {
 					_limit: limit,

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import takeADateFromPathname from '../../../scripts/takeADateFromPathname';
 import classNames from 'classnames';
 
-const ToDo = ({remove, elem, ...props}) => {
+const ToDo = ({remove, elem, completed, setCompleted,  ...props}) => {
     const timeDate = DateFromDotOrColonFormat(props.time);
     const router = useHistory();
     const tmpDate = takeADateFromPathname(router.location.pathname);
@@ -18,12 +18,14 @@ const ToDo = ({remove, elem, ...props}) => {
         <div className={classes.ToDoBorderDiv}>
             <div className={classes.ToDoContent}>
                 <div className={classNames(classes.TimeDiv, isItPastTime && classes.TimeDivExpired)}>{props.time}</div>
-                <strong>{props.text}</strong>
+                {/* <button>Complete</button> */}
+                <strong style={{margin : "5px"}}>{props.text}</strong>
             </div>
             <div className={classes.ToDoButtonsDiv}>
                 <button>Edit</button>
                 <button onClick={()=>remove(elem)}>Delete</button>
                 <button>Check Memo</button>
+                <></>
             </div>
         </div>
         </div>

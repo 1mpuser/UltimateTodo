@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import getDateFromDotFormat from '../../scripts/getDateFromDotFormat';
 import { englishMonths } from '../../constants/EnglishMonths';
 import classes from './TodoOnDatePage.module.css';
-import MyInput from '../../components/UI/LabelInput/MyInput';
-import MySelect from '../../components/UI/MySelect/MySelect';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import ToDoList from '../../components/UI/ToDoList/ToDoList';
@@ -71,7 +69,11 @@ const TodoOnDatePage = () => {
                 }}
                 />
             </div>
-            {isLoading && <div className={classes.LoaderDiv}><Loader/></div>}
+            {isLoading && <div
+					        style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
+					            <Loader />
+				        </div>
+            }
             {!isLoading && <>
                                 <div>
                                     <TodoFilter
