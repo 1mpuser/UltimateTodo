@@ -7,7 +7,9 @@ export default function DateFromDotOrColonFormat(DotOrColonFormatString) {
 		arr = DotOrColonFormatString.split('.');
 	} else if (/\:/.test(DotOrColonFormatString)) {
 		arr = DotOrColonFormatString.split(':');
-	} else return nowDate;
+	} else if (Number(DotOrColonFormatString) == DotOrColonFormatString)
+		arr[0] = DotOrColonFormatString;
+	else return null;
 
 	const date = new Date(
 		nowDate.getFullYear(),

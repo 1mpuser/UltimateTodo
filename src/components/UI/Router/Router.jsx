@@ -31,10 +31,10 @@ const Router = () => {
             <Route key={id()} path='/calendarik'>
                 <CalendarPage/>
             </Route>
-            <Route exact to = "todos/:date">
+            <Route key={id()} to = "todos/:date">
                 <TodoOnDatePage/>
             </Route>
-             <Redirect key={id()} to='/home'/>
+            <Redirect to = "/home"></Redirect>
         </Switch>
     );
 }

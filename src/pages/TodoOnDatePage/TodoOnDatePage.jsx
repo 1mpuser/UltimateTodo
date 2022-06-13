@@ -14,13 +14,16 @@ import { useSortedTodos } from '../../hooks/useSortedTodos';
 import ToDoForm from '../../components/UI/ToDoForm/ToDoForm';
 import getNowTimeInTwoPoints from '../../scripts/getNowTimeInTwoPoints';
 import ToDoEditingForm from '../../components/ToDoEditingForm/ToDoEditingForm';
+import setStringWithNilFromNumber from '../../scripts/setStringWithNilFromNumber';
 
 const TodoOnDatePage = () => {
     //month is extended on 1 for client comfort
     const id = nanoid;
+    const nowDate = new Date();
     const nowHour = 12;
     const [toDoArr, setToDoArr] = useState([]);
-    const [todoFormInputValue, setTodoFormValue] = useState('');
+    const [todoFormTextInputValue, setTodoFormTextInputValue] = useState('');
+    const [todoFormTimeInputValue, setTodoFormTimeInputValue] = useState(`${setStringWithNilFromNumber(nowDate.getHours())}:${setStringWithNilFromNumber(nowDate.getMinutes())}`)
     const router = useHistory();
     const neededDate = getDateFromDotFormat(router.location.pathname.split('/')[2]);
     const [fetching, isLoading, error] = useFetching(async()=>{
@@ -73,11 +76,12 @@ const TodoOnDatePage = () => {
         <div className={classes.mainDiv}>
             <h1>ToDo page on {neededDate.getDate() + ' ' + englishMonths[neededDate.getMonth()] + ' ' +  neededDate.getFullYear()}</h1>
             <div className={classes.ItemsDiv}>
-                <ToDoForm value={todoFormInputValue} setValue = {setTodoFormValue} 
+                <ToDoForm textValue={todoFormTextInputValue} setTextValue = {setTodoFormTextInputValue} 
+                dateValue = {todoFormTimeInputValue} setDateValue = {setTodoFormTimeInputValue}
                 pushTodo={(string)=>{
                     const tmpArr = [...toDoArr];
                     tmpArr.push({
-                        time : getNowTimeInTwoPoints(),
+                        time : todoFormTimeInputValue,
                         text : string
                     });
                     setToDoArr(tmpArr);
