@@ -32,7 +32,7 @@ const TodoOnDatePage = () => {
         setToDoArr(arr);
     });
 
-    const [isEditing, setEditingStatus] = useState<Boolean>(false);
+    const [isEditing, setEditingStatus] = useState(false);
     const [editingElement, setEditingElement] = useState({})
     
     const [options, setOptions] = useState([
@@ -53,6 +53,11 @@ const TodoOnDatePage = () => {
 	}, []);
     const [sortType, setSortType] = useState('');
     const sortedContent = useMemo(()=>useSortedTodos(toDoArr, sortType), [toDoArr, sortType]);
+    
+    
+    
+    
+    
     return (
         <div className={classes.mainDiv}>
             <h1>ToDo page on {neededDate.getDate() + ' ' + englishMonths[neededDate.getMonth()] + ' ' +  neededDate.getFullYear()}</h1>
@@ -81,9 +86,11 @@ const TodoOnDatePage = () => {
                                     {/* <MyInput placeholder = "Search Todos by name"/>      */}
                                 </div>
                             {isEditing ? 
-                            <>
-                            <ToDoEditingForm />
-                            </>
+                                <>
+                                    <ToDoEditingForm changingElem = {editingElement} setEditedElement = {(elem)=>{
+
+                                    }} setEditStatus = {()=>setEditingStatus(false)}/>
+                                </>
                                 :
                                 <>
                                 <ToDoList 
@@ -98,11 +105,10 @@ const TodoOnDatePage = () => {
                                         }))
                                     }}
                                     setEditStatus = {()=>setEditingStatus(true)}
-                                    setEdElem = {(elem)=>{
-                                        setEditingElement(elem);
-                                    }}     
+                                    setEdElement = {(elem)=>setEditingElement(elem)}     
                                 />
-                                </>}
+                                </>
+                            }
                             </>
             }
         </div>
