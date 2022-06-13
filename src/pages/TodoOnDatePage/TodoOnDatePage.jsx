@@ -13,9 +13,10 @@ import TodoFilter from '../../components/ToDoFilter';
 import { useSortedTodos } from '../../hooks/useSortedTodos';
 import ToDoForm from '../../components/UI/ToDoForm/ToDoForm';
 import getNowTimeInTwoPoints from '../../scripts/getNowTimeInTwoPoints';
+import ToDoEditingForm from '../../components/ToDoEditingForm/ToDoEditingForm';
 
 const TodoOnDatePage = () => {
-    //month is extended for 1 for client comfort
+    //month is extended on 1 for client comfort
     const id = nanoid;
     const nowHour = 12;
     const [toDoArr, setToDoArr] = useState([]);
@@ -31,7 +32,8 @@ const TodoOnDatePage = () => {
         setToDoArr(arr);
     });
 
-    const [isEditing, setEditingStatus] = useState(false);
+    const [isEditing, setEditingStatus] = useState<Boolean>(false);
+    const [editingElement, setEditingElement] = useState({})
     
     const [options, setOptions] = useState([
     {
@@ -75,10 +77,15 @@ const TodoOnDatePage = () => {
                                 <div>
                                     <TodoFilter
                                         options={[...options]}
-                                        returnSortArr={(sort) => setSortType(sort)}
-                                    />
+                                        returnSortArr={(sort) => setSortType(sort)}/>
                                     {/* <MyInput placeholder = "Search Todos by name"/>      */}
                                 </div>
+                            {isEditing ? 
+                            <>
+                            <ToDoEditingForm />
+                            </>
+                                :
+                                <>
                                 <ToDoList 
                                     remove={(removeElem) => setToDoArr(toDoArr.filter((item) => item !== removeElem))}
                                     objs={sortedContent}
@@ -90,7 +97,12 @@ const TodoOnDatePage = () => {
                                             return item
                                         }))
                                     }}
+                                    setEditStatus = {()=>setEditingStatus(true)}
+                                    setEdElem = {(elem)=>{
+                                        setEditingElement(elem);
+                                    }}     
                                 />
+                                </>}
                             </>
             }
         </div>
