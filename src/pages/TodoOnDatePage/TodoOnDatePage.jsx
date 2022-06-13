@@ -34,7 +34,18 @@ const TodoOnDatePage = () => {
 
     const [isEditing, setEditingStatus] = useState(false);
     const [editingElement, setEditingElement] = useState({})
-    
+    useEffect(()=>{
+        const length = Object.keys(editingElement).length;
+        let neededIndex;
+        if (!length) {
+            const tmpArr = toDoArr.map((item, index)=>{
+                if (item == editingElement) neededIndex = index;
+            })
+            tmpArr[neededIndex] = editingElement;
+            setToDoArr(tmpArr);
+        }
+    }, [editingElement, isEditing])
+
     const [options, setOptions] = useState([
     {
         value : "time", 

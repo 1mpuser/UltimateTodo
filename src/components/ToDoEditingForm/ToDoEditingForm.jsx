@@ -6,6 +6,8 @@ const ToDoEditingForm = ({setEditStatus, changingElem, ...props}) => {
     return (
         <div className={classes.mainDiv}>
             <form onSubmit = {()=>{
+                changingElem.text = InputText;
+                
                 setEditStatus(false)
             }}>
                 <input type="text" value={InputText} onChange = {(event)=>setInputText(event.target.value)}/> 
