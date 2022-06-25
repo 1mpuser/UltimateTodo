@@ -1,4 +1,4 @@
-export default function isItTodayDate(incomeDate) {
+export default function isItTodayDate(incomeDate : Date) : boolean {
 	let date = new Date();
 	if (
 		date.getDate() == incomeDate.getDate() &&
