@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router';
+import { Redirect, Switch } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import CalendarPage from '../../../pages/CalendarPage/CalendarPage';
 import ErrorPage from '../../../pages/ErrorPage/ErrorPage';
@@ -8,6 +9,7 @@ import LoginPage from '../../../pages/LoginPage/LoginPage';
 import SignUpPage from '../../../pages/SignUpPage/SignUpPage';
 import TodoPage from '../../../pages/TodayTodoPage/TodoPage';
 import TodoOnDatePage from '../../../pages/TodoOnDatePage/TodoOnDatePage';
+
 
 const Router = () => {
     const id = nanoid;
@@ -31,8 +33,10 @@ const Router = () => {
             <Route key={id()} path='/calendarik'>
                 <CalendarPage/>
             </Route>
-            <Route key={id()} to = "todos/:date">
-                <TodoOnDatePage/>
+            <Route key={id()} path="/todos">
+                <Route key={id()} to = ":date">
+                    <TodoOnDatePage/>
+                </Route>
             </Route>
             <Redirect to = "/home"></Redirect>
         </Switch>
