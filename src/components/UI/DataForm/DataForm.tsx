@@ -1,7 +1,9 @@
 import { nanoid } from 'nanoid';
-import React from 'react';
+import React, {FC} from 'react';
 import classes from './DataForm.module.css'
-const DataForm = ({children, ...props}) => {
+import { IVisualFC } from '../../../interfaces/types';
+
+const DataForm : FC <IVisualFC> = ({children, ...props}) => {
     const uniqueIdForForm = nanoid(22);
     return (
         <form id={uniqueIdForForm}  {...props} className={classes.form} onKeyDown={(event)=>{

@@ -1,17 +1,17 @@
-import Router from './components/UI/Router/Router';
 import { BrowserRouter } from 'react-router-dom';
+import Router from './components/UI/Router/Router';
 import './App.css';
 import LoginBar from './components/UI/LoginBar/LoginBar';
 import { DateContext } from './context/DateContext';
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { AuthContext } from './context/AuthContext';
-import ModalCalendarWindow from './components/ModalCalendarWindow/ModalCalendarWindow';
-import { useHistory } from 'react-router-dom';
-function App() {
+
+
+function App()  {
 	const now = new Date();
-	const [date, setDate] = useState(now);
-	const [isAuth, setAuthStatus] = useState(false);
-	const [login, setLogin] = useState('');
+	const [date, setDate] = useState<Date>(now);
+	const [isAuth, setAuthStatus] = useState<boolean>(false);
+	const [login, setLogin] = useState<string>('');
 	return (
 		<AuthContext.Provider value={{ isAuth, setAuthStatus, login, setLogin }}>
 			<DateContext.Provider value={{ date, setDate }}>

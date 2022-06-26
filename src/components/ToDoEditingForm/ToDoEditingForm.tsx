@@ -9,7 +9,7 @@ interface ToDoEditingFormProps {
 
 const ToDoEditingForm : FC<ToDoEditingFormProps>  = ({setEditStatus, changingElem, ...props}) => {
     const [InputText, setInputText] = useState<string>(changingElem.text);
-    const [TextAreaValue, setTextAreaValue] = useState<string>(changingElem.memo)
+    const [TextAreaValue, setTextAreaValue] = useState(changingElem.memo)
     return (
         <div className={classes.mainDiv}>
             <form onSubmit = {()=>{

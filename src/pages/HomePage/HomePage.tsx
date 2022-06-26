@@ -20,8 +20,8 @@ const HomePage = () => {
             <ModalCalendarWindow 
             status={visibleModal} 
             setStatus={()=>setVisibleModalStatus(false)}
-            >
-            </ModalCalendarWindow>
+            />
+
             <div className={classes.mainDiv}>
                 <div className={classes.optionalDiv && classes.firstOptionalDiv}>This is HomePage</div>
                 <div className={classes.optionalDiv}>

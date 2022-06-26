@@ -1,4 +1,4 @@
-export const arrOfRussianMonths = [
+export const arrOfRussianMonths : string[] = [
 	'Январь',
 	'Февраль',
 	'Март',

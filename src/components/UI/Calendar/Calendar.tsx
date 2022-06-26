@@ -1,12 +1,15 @@
-import { nanoid } from 'nanoid';
-import React, {useContext, useState, useMemo} from 'react';
+import React, {useContext, useState, useMemo , FC} from 'react';
 import classes from './Calendar.module.css';
 import WeekDaysDiv from './CalendarElems/WeekDaysDiv/WeekDaysDiv';
 import FirstLineDiv from './CalendarElems/FirstLineDiv/FirstLineDiv';
 import SmartDivWithCellReorganisation from './CalendarElems/SmartDivWithCellReorganisation/SmartDivWithCellReorganisation';
 import { DateContext } from '../../../context/DateContext';
-const Calendar = ({takeAwayModalWindow}) => {
-    const id = nanoid;
+
+interface CalendarProps {
+    takeAwayModalWindow? : (arg0: boolean)=>void
+}
+
+const Calendar : FC <CalendarProps> = ({takeAwayModalWindow}) => {
     const {date, setDate} = useContext(DateContext);
     const workingDate = useMemo (()=> new Date ( date.getFullYear(), date.getMonth(), 1), [date]);
     const [calendarDate, setCalendarDate] = useState(workingDate);
@@ -15,7 +18,7 @@ const Calendar = ({takeAwayModalWindow}) => {
         <div className={classes.basis}>
             <FirstLineDiv date={calendarDate} setWorkDate = {(date)=>setCalendarDate(date)}/>
             <WeekDaysDiv/>
-            <SmartDivWithCellReorganisation takeModalWindowFalse = {takeAwayModalWindow} contextDate = {date} workDate = {calendarDate} setContextFromCell = {(date)=>setDate(date)}/>
+            <SmartDivWithCellReorganisation takeModalWindowFalse = {takeAwayModalWindow} contextDate = {date} workDate = {calendarDate} setContextFromCell = {(date : Date)=>{if (setDate) setDate(date)}}/>
         </div>
     );
 }
