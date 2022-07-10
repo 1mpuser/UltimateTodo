@@ -1,6 +1,6 @@
-import { IAuthUser } from "../../interfaces/types";
+import { IAuthUser } from "../types/types";
 import { UserAuthEnum } from "../enums/enum";
-import { IUserAuthAction } from "../../interfaces/types";
+import { IUserAuthAction } from "../types/types";
 const initialState : IAuthUser  = {
     isAuth : false,
     login : ''

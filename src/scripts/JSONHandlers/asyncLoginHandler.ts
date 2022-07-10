@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { jsonLike } from '../../SomeFilesWhichIWouldGetFromBackend/LikeJsonClientProfile';
-export default async function asyncLoginHandler(login, password) {
+export default async function asyncLoginHandler(login : string, password : string) : Promise<[boolean, string | undefined]> {
 	//returning arr with name and status
 	//if finction returs array with something or false
 	setTimeout(() => true, 3000); //that could be a server responce cause function

@@ -24,12 +24,3 @@ export interface IEmptyObject {
 export interface IVisualFC {
     children ? : any
 }
-export interface IAuthUser {
-    isAuth : boolean
-    login : string
-}
-
-export interface IUserAuthAction{
-    type : string
-    login : string
-}

@@ -15,7 +15,6 @@ export default class ServerHelper {
 				},
 			}
 		);
-
 		return responce.data;
 	}
 }

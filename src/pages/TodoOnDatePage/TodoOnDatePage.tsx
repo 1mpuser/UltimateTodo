@@ -17,7 +17,7 @@ import setStringWithNilFromNumber from '../../scripts/setStringWithNilFromNumber
 import { ITodo, ISortOption } from '../../interfaces/types';
 
 const TodoOnDatePage : FC = () => {
-    //month is extended on 1 for client comfort
+    //month is extended for 1 for client comfort
     const id = nanoid;
     const nowDate : Date = new Date();
     const nowHour : number = 12;
@@ -70,6 +70,7 @@ const TodoOnDatePage : FC = () => {
 	}, []);
     const [sortType, setSortType] = useState<string>('');
     const sortedContent = useSortedTodos(toDoArr, sortType)
+    //Here we could do like that useMemo(()=>useSortedTodos(toDoArr, sortType), [toDoArr, sortType]) 
     
     
     
