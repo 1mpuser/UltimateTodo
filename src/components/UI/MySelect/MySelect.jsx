@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import { nanoid } from 'nanoid';
 import classes from './MySelect.module.css'
 

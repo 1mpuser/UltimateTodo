@@ -8,7 +8,6 @@ export interface IAccount {
     login : string
     password : string
     arrWithTodos : ITodo[]
-
 }
 export interface IToDoCallback {
     callback : (arg: ITodo)=>void
@@ -24,4 +23,13 @@ export interface IEmptyObject {
 
 export interface IVisualFC {
     children ? : any
+}
+export interface IAuthUser {
+    isAuth : boolean
+    login : string
+}
+
+export interface IUserAuthAction{
+    type : string
+    login : string
 }

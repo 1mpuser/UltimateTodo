@@ -3,7 +3,7 @@ import Router from './components/UI/Router/Router';
 import './App.css';
 import LoginBar from './components/UI/LoginBar/LoginBar';
 import { DateContext } from './context/DateContext';
-import React, { useState, FC } from 'react';
+import React, { useState } from 'react';
 import { AuthContext } from './context/AuthContext';
 
 

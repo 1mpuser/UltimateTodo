@@ -12,10 +12,9 @@ import Loader from '../../components/UI/Loader/Loader';
 import TodoFilter from '../../components/ToDoFilter';
 import { useSortedTodos } from '../../hooks/useSortedTodos';
 import ToDoForm from '../../components/UI/ToDoForm/ToDoForm';
-import getNowTimeInTwoPoints from '../../scripts/getNowTimeInTwoPoints';
 import ToDoEditingForm from '../../components/ToDoEditingForm/ToDoEditingForm';
 import setStringWithNilFromNumber from '../../scripts/setStringWithNilFromNumber';
-import { ITodo, ISortOption, IEmptyObject } from '../../interfaces/types';
+import { ITodo, ISortOption } from '../../interfaces/types';
 
 const TodoOnDatePage : FC = () => {
     //month is extended on 1 for client comfort
@@ -70,7 +69,7 @@ const TodoOnDatePage : FC = () => {
 		fet();
 	}, []);
     const [sortType, setSortType] = useState<string>('');
-    const sortedContent = useMemo(()=>useSortedTodos(toDoArr, sortType), [toDoArr, sortType]);
+    const sortedContent = useSortedTodos(toDoArr, sortType)
     
     
     
