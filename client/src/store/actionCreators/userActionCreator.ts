@@ -1,4 +1,3 @@
-import { Dispatch } from "redux"
 import { UserAuthEnum } from "../enums/enum";
 import { IUserAuthAction } from '../types/types';
 

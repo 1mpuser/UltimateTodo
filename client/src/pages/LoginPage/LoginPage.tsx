@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { logination } from '../../store/actionCreators/userActionCreator';
 import asyncLoginHandler from '../../scripts/JSONHandlers/asyncLoginHandler';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-const LoginPage : FC = () => {
+const LoginPage : React.FC = () => {
     const [tmpLogin, setTmpLogin] = useState('');
     const [password, setPassword] = useState('');
     // const { isAuth, setAuthStatus, login, setLogin } = useContext(AuthContext);
