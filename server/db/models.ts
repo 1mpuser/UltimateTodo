@@ -20,7 +20,7 @@ const User = sequelize.define('user', {
         type: DataTypes.STRING,
     }
 })
-const DateToDoCluster = sequelize.define('date_todo_cluster', {
+export const DateToDoCluster = sequelize.define('date_todo_cluster', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -30,7 +30,7 @@ const DateToDoCluster = sequelize.define('date_todo_cluster', {
         type : DataTypes.DATEONLY
     }
 });
-const ToDo = sequelize.define('todo', {
+export const ToDo = sequelize.define('todo', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
