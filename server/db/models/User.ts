@@ -1,7 +1,6 @@
+import { DataTypes, Optional, Model } from 'sequelize';
 import { DateToDoCluster } from './../models';
-import { Model, Optional } from 'sequelize/types';
-import { Sequelize, DataTypes } from 'sequelize';
-import { sequelize } from './index';
+import sequelize from './index';
 
 interface UserAttributes {
 	id: string;
@@ -43,33 +42,35 @@ User.hasMany(DateToDoCluster, {
 	as: 'DateToDoClusters',
 });
 
+export default User;
+
 //export default User;
-module.exports = (sequelize: Sequelize) => {
-	const User = sequelize.define<UserInstance>('User', {
-		id: {
-			type: DataTypes.INTEGER,
-			primaryKey: true,
-			autoIncrement: true,
-		},
-		email: {
-			type: DataTypes.STRING,
-			unique: true,
-		},
-		username: {
-			type: DataTypes.STRING,
-			unique: true,
-		},
-		password: {
-			type: DataTypes.STRING,
-		},
-	});
+// module.exports = (sequelize: Sequelize) => {
+// 	const User = sequelize.define<UserInstance>('User', {
+// 		id: {
+// 			type: DataTypes.INTEGER,
+// 			primaryKey: true,
+// 			autoIncrement: true,
+// 		},
+// 		email: {
+// 			type: DataTypes.STRING,
+// 			unique: true,
+// 		},
+// 		username: {
+// 			type: DataTypes.STRING,
+// 			unique: true,
+// 		},
+// 		password: {
+// 			type: DataTypes.STRING,
+// 		},
+// 	});
 
-	//Assosiation here
-	User.hasMany(DateToDoCluster, {
-		sourceKey: 'id',
-		foreignKey: 'userId',
-		as: 'DateToDoClusters',
-	});
+// 	//Assosiation here
+// 	User.hasMany(DateToDoCluster, {
+// 		sourceKey: 'id',
+// 		foreignKey: 'userId',
+// 		as: 'DateToDoClusters',
+// 	});
 
-	return User;
-};
+// 	return User;
+// };

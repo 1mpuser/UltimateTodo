@@ -1,7 +1,6 @@
 require('dotenv').config();
 import express, { Application } from 'express';
-import { Sequelize } from 'sequelize';
-const sequelize = require('./db/models/index');
+import { sequelize } from './db/models/index';
 const PORT: number = Number(process.env.PORT) || 7800;
 
 const app: Application = express();
