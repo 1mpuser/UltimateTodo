@@ -1,8 +1,10 @@
 import { DataTypes } from 'sequelize/types';
-import { Sequelize } from 'sequelize';
-const sequelize: Sequelize = require('./db');
+import sequelize from '.';
+import IDateToDoClusterModel from './IDateToDoClusterModel';
+import IUserModel from './IUserModel';
+import IToDo from './IToDo';
 
-const User = sequelize.define('user', {
+export const User = sequelize.define<IUserModel>('User', {
 	id: {
 		type: DataTypes.INTEGER,
 		primaryKey: true,
@@ -20,17 +22,20 @@ const User = sequelize.define('user', {
 		type: DataTypes.STRING,
 	},
 });
-export const DateToDoCluster = sequelize.define('date_todo_cluster', {
-	id: {
-		type: DataTypes.INTEGER,
-		primaryKey: true,
-		autoIncrement: true,
-	},
-	date: {
-		type: DataTypes.DATEONLY,
-	},
-});
-export const ToDo = sequelize.define('todo', {
+export const DateToDoCluster = sequelize.define<IDateToDoClusterModel>(
+	'Date_ToDo_Cluster',
+	{
+		id: {
+			type: DataTypes.INTEGER,
+			primaryKey: true,
+			autoIncrement: true,
+		},
+		date: {
+			type: DataTypes.DATEONLY,
+		},
+	}
+);
+export const ToDo = sequelize.define<IToDo>('ToDo', {
 	id: {
 		type: DataTypes.INTEGER,
 		primaryKey: true,
